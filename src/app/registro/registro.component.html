@@ -1,0 +1,49 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30" style="padding-top: 50px;">
+            <a routerLink="/login" class="fas fa-arrow-left" routerLinkActive="active"> Regresar</a>
+
+            <form class="login100-form validate-form">
+                <span class="login100-form-title p-b-55">
+                        Registro de Usuarios
+                    </span>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <input class="input100" type="text" name="nombres" placeholder="Nombres" [(ngModel)]="nombres">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-envelope"></span>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16">
+                    <input class="input100" type="text" name="email" placeholder="Email" [(ngModel)]="email">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-envelope"></span>
+                    </span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16">
+                    <input class="input100" type="password" name="pass" placeholder="Contraseña" [(ngModel)]="pass">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                            <span class="lnr lnr-lock"></span>
+                    </span>
+                </div>
+
+                <div class="container-login100-form-btn p-t-24" style="padding-top: 0px;">
+                    <button class="login100-form-btn" (click)="registro();" [disabled]="load">
+                            Registrar
+                        </button>
+                    <img src="/assets/gif/Blocks-1s-200px.gif" style="width: 80px;" *ngIf="load">
+                </div>
+
+                <div class="text-center ">
+
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

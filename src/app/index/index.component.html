@@ -1,0 +1,229 @@
+<!--==========================
+  Header
+  ============================-->
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <a href="#hero" onclick="return false;">
+                <img src="/assets/img/CineXtreme.png" alt="" title="" style="width: 150px;" />
+            </a>
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!--<h1><a href="#hero">Regna</a></h1>-->
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a href="#about" onclick="return false;">Precios..</a></li>
+            </ul>
+        </nav>
+        <!-- #nav-menu-container -->
+    </div>
+</header>
+<!-- #header -->
+
+<!--==========================
+    Hero Section
+  ============================-->
+<section id="hero">
+    <div class="hero-container">
+        <h1>Bienvenido a CineXtreme</h1>
+        <h2>Disfruta de las últimas películas de estreno sin cortes, si publicidad, full calidad</h2>
+
+        <div class="row">
+            <a href="#about" class="btn-get-started">¿Tienes Código de demostración?</a>
+            <a routerLink="/login" class="btn-get-started" routerLinkActive="active">Inicia Sesión</a>
+
+        </div>
+    </div>
+</section>
+<!-- #hero -->
+
+<main id="main">
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+        <div class="container">
+            <div class="row about-container">
+
+
+
+                <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                    <h1 class="display-4">Precios</h1>
+                    <p class="lead">Escoje el plan que se adapte a tu necesidad </p>
+                </div>
+
+                <div class="container">
+                    <div class="card-deck mb-3 text-center">
+                        <div class="card mb-4 shadow-sm">
+
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal">Básico</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">7.000 COP<small class="text-muted">/ mes</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>30 Días de servicio</li>
+                                    <li>Acceso a todas las películas</li>
+                                    <li>Soporte por email y/o WhatsApp</li>
+                                    <li>Opción para pedir peliculas</li>
+                                    <li>1 pantalla activa</li>
+                                </ul>
+
+                                <a mp-mode="dftl" href="https://www.mercadopago.com.co/checkout/v1/redirect?pref_id=240211550-bdd631c7-b960-4eef-8847-1455c8fffb28" name="MP-payButton" class='btn btn-lg btn-block btn-outline-primary'>Adquirir</a>
+                                <script type="text/javascript">
+                                    (function() {
+                                        function $MPC_load() {
+                                            window.$MPC_loaded !== true && (function() {
+                                                var s = document.createElement("script");
+                                                s.type = "text/javascript";
+                                                s.async = true;
+                                                s.src = document.location.protocol + "//secure.mlstatic.com/mptools/render.js";
+                                                var x = document.getElementsByTagName('script')[0];
+                                                x.parentNode.insertBefore(s, x);
+                                                window.$MPC_loaded = true;
+                                            })();
+                                        }
+                                        window.$MPC_loaded !== true ? (window.attachEvent ? window.attachEvent('onload', $MPC_load) : window.addEventListener('load', $MPC_load, false)) : null;
+                                    })();
+                                </script>
+
+                            </div>
+                        </div>
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal">Estándar</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">12.000 COP<small class="text-muted">/ mes</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>60 Días de servicio</li>
+                                    <li>Acceso a todas las películas</li>
+                                    <li>Soporte por email y/o WhatsApp</li>
+                                    <li>Opción para pedir peliculas</li>
+                                    <li>2 pantallas activas</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-primary">Adquirir</button>
+                            </div>
+                        </div>
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal">Premium</h4>
+                            </div>
+                            <div class="card-body">
+                                <h1 class="card-title pricing-card-title">21.000 COP <small class="text-muted">/ mes</small></h1>
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    <li>90 Días de servicio</li>
+                                    <li>Acceso a todas las películas</li>
+                                    <li>Soporte por email y/o WhatsApp</li>
+                                    <li>Opción para pedir peliculas</li>
+                                    <li>3 pantallas activas</li>
+                                </ul>
+                                <button type="button" class="btn btn-lg btn-block btn-primary">Adquirir</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- #about -->
+
+
+
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact">
+        <div class="container wow fadeInUp">
+            <div class="section-header">
+                <h3 class="section-title">Contacto</h3>
+                <p class="section-description">Si tienes preguntas nos dejar un mensaje, nosotros te responderemos los más rápido posible </p>
+            </div>
+        </div>
+
+        <div class="container wow fadeInUp mt-5">
+            <div class="row justify-content-center">
+
+                <div class="col-lg-3 col-md-4">
+
+                    <div class="info">
+                        <div>
+                            <i class="fa fa-map-marker"></i>
+                            <p>Bogotá<br>Colombia</p>
+                        </div>
+
+                        <div>
+                            <i class="fa fa-envelope"></i>
+                            <p>cinextreme@gmail.com</p>
+                        </div>
+
+                        <div>
+                            <i class="fa fa-whatsapp"></i>
+                            <p>+57 3016354417</p>
+                        </div>
+                    </div>
+
+                    <!--<div class="social-links">
+                        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                    </div>-->
+
+                </div>
+
+                <div class="col-lg-5 col-md-8">
+                    <div class="form">
+                        <div id="sendmessage">Your message has been sent. Thank you!</div>
+                        <div id="errormessage"></div>
+                        <form action="" method="post" role="form" class="contactForm">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Tu nombre" />
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Tu Email" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Asunto" />
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Mensaje"></textarea>
+                            </div>
+                            <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- #contact -->
+
+</main>
+
+<!--==========================
+    Footer
+  ============================-->
+<footer id="footer">
+    <div class="footer-top">
+        <div class="container">
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>CineXtreme</strong> 2020. Todos los derechos reservados
+        </div>
+    </div>
+</footer>
+<!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
