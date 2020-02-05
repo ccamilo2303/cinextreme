@@ -26,6 +26,8 @@ import { RegistroComponent } from './registro/registro.component';
 import { PeliculaComponent } from './pelicula/pelicula.component';
 import { SafePipePipe } from './safe-pipe.pipe';
 import { HourPipe } from './hour.pipe';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 
 const routes: Routes = [
   {
@@ -91,7 +93,16 @@ const routes: Routes = [
 
     AngularFireAuthModule ,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
