@@ -27,7 +27,7 @@ import { PeliculaComponent } from './pelicula/pelicula.component';
 import { SafePipePipe } from './safe-pipe.pipe';
 import { HourPipe } from './hour.pipe';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-
+import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -104,7 +104,9 @@ const routes: Routes = [
       animationDuration: 300
     })
   ],
-  providers: [],
+  providers: [
+    {provide : LocationStrategy , useClass: HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

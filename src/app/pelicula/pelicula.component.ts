@@ -28,7 +28,6 @@ export class PeliculaComponent implements OnInit {
   constructor(private route: ActivatedRoute, private httpService: HttpService, private theMovieDataBaseService: TheMovieDataBaseService) {
 
     this.scripts.push("/assets/jsPelicula/scripts/custom.js");
-
   }
 
   ngOnInit() {
