@@ -17,7 +17,9 @@ declare var $: any;
   providers: [NgbRatingConfig]
 })
 export class CarteleraComponent implements OnInit {
+  
   public peliculas: any;
+  public pageOfItems: Array<any>;
 
   public banner = [
     "../img/hero-bg.jpg",
@@ -41,16 +43,13 @@ export class CarteleraComponent implements OnInit {
     if (this.urlBase == undefined) {
 
       let u = $("#slide").css('background');
-      console.log(u);
       u = u.substring(u.indexOf('"') + 1, u.length);
-      console.log(u);
 
       u = u.substring(0, u.indexOf('"'));
       this.urlBase = u;
     }
     //image
     this.httpService.consultarCartelera().subscribe(result => {
-      console.log(result);
       this.peliculas = result;
       for (let x of this.peliculas) {
         this.theMovieDataBaseService.consultarImagen(x['id_Tmbd']).subscribe(rImg => {
@@ -79,6 +78,15 @@ export class CarteleraComponent implements OnInit {
   almacenarDescripcion(id, descripcion) {
     console.log("agrega..... ", descripcion);
     localStorage.setItem(id, descripcion);
+  }
+
+  /**
+   * 
+   * @param pageOfItems 
+   */
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
   }
 
 }

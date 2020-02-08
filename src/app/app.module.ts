@@ -29,6 +29,8 @@ import { HourPipe } from './hour.pipe';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {
@@ -72,7 +74,9 @@ const routes: Routes = [
     RegistroComponent,
     PeliculaComponent,
     SafePipePipe,
-    HourPipe
+    HourPipe,
+    FooterComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -95,16 +99,8 @@ const routes: Routes = [
     AngularFireAuthModule ,
     FormsModule,
     HttpClientModule,
-    NgCircleProgressModule.forRoot({
-      // set defaults here
-      radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300
-    }),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxPaginationModule
   ],
   providers: [
     {provide : LocationStrategy , useClass: HashLocationStrategy}

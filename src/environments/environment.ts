@@ -19,7 +19,7 @@ export const environment = {
   
   ipImagenTMDB : 'https://image.tmdb.org/t/p/original/',
   ipBaseTMDB: 'https://api.themoviedb.org/3/movie/',
-  keyTMDB : 'bc1c5a186336316ef24b88612a021747'
+  keyTMDB : 'e38bdcb99eda95bae467ac8f3dd8684f'
 
 
 };

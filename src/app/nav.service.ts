@@ -16,8 +16,6 @@ export class NavService {
       $ = jQuery;
     }
     
-  console.log("........> ", $);
-  console.log("........> ", jQuery);
 
     // Header fixed and Back to top button
     $(window).scroll(function () {
@@ -66,7 +64,6 @@ export class NavService {
       });
 
       $(document).on('click', '#mobile-nav-toggle', function (e) {
-        console.log("DA CLICK .... ");
         $('body').toggleClass('mobile-nav-active');
         $('#mobile-nav-toggle i').toggleClass('fa-times fa-bars');
         $('#mobile-body-overly').toggle();
