@@ -410,7 +410,7 @@ body.full-screen-video #contentContainer {
     position: relative;
     border: none;
     max-width: 100%;
-    margin: 30px 0 0 30px;
+    /*margin: 30px 0 0 30px;*/
     outline: none;
     font-size: 200%;
     font-weight: lighter;

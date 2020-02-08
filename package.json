@@ -30,6 +30,7 @@
     "firebase": "^7.7.0",
     "jquery": "^3.4.1",
     "ng-circle-progress": "^1.5.1",
+    "ngx-spinner": "^8.1.0",
     "rxjs": "~6.4.0",
     "sweetalert2": "^9.7.0",
     "tslib": "^1.10.0",

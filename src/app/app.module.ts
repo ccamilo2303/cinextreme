@@ -28,6 +28,7 @@ import { SafePipePipe } from './safe-pipe.pipe';
 import { HourPipe } from './hour.pipe';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 const routes: Routes = [
   {
@@ -102,7 +103,8 @@ const routes: Routes = [
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
       animationDuration: 300
-    })
+    }),
+    NgxSpinnerModule
   ],
   providers: [
     {provide : LocationStrategy , useClass: HashLocationStrategy}
