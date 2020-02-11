@@ -15,7 +15,7 @@ export const environment = {
     appId: "1:10253746863:web:46cc892d70172f3a250a5a"
   },
 
-  ipServicio : 'https://cinextreme.000webhostapp.com/',
+  ipServicio : 'http://cinextreme.co/public/',
   
   ipImagenTMDB : 'https://image.tmdb.org/t/p/original/',
   ipBaseTMDB: 'https://api.themoviedb.org/3/movie/',

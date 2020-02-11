@@ -960,8 +960,10 @@ jQuery(document).on('click', '.post-video', function() {
 //VIDEO PAGE STUFF -- videoLink click, closeVideo
 //////////////////
 jQuery(document).on('click', '.videoLink', function() {
-    var linkId = jQuery(this).attr('id'),
-        videoContainer = jQuery('.videoContainer'),
+
+    Tawk_API.hideWidget();
+
+    videoContainer = jQuery('.videoContainer'),
         videoId = videoContainer.data('vidid');
 
     jQuery("html,body").stop().animate({ scrollTop: 0 }, 1500);
@@ -971,7 +973,7 @@ jQuery(document).on('click', '.videoLink', function() {
 
         //videoContainer.append('<video class="postVideo selfVid" width="320" height="240" controls autoplay><source src="' + videoId + '" type="video/mp4">Your browser does not support the video tag.</video> ');
         videoContainer.append('<video id="movie" class="postVideo selfVid video-js" controls autoplay preload="auto" width="320" height="240" poster="https://image.tmdb.org/t/p/original/A1lvRqwbLz0PIs5QyivFVzCarc6.jpg" data-setup="{}" > <source src="' + videoId + '" type="video/mp4" /> <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank" >supports HTML5 video</a > </p> </video><script src="https://vjs.zencdn.net/7.6.6/video.js"></script>');
-        videoContainer.append('<script > setTimeout(function(){document.getElementById("movie_html5_api").play();}, 200)</script>');
+        videoContainer.append('<script > setTimeout(function(){document.getElementById("movie_html5_api").play();}, 500)</script>');
 
     } else if (videoContainer.hasClass('youtube-video')) {
 
@@ -1007,6 +1009,8 @@ jQuery(document).on('click', '.videoLink', function() {
 });
 //CLOSE VIDEO FUNCTION
 function closeVideo() {
+
+    Tawk_API.showWidget();
 
     var videoContainer = jQuery('.videoContainer');
 

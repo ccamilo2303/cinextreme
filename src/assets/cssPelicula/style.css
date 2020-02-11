@@ -1098,11 +1098,11 @@ body.mobile-device #audioControl {
 #reviews {
     position: absolute;
     left: 30px;
-    bottom: 80px;
+    bottom: 10px;
     max-width: 100%;
     z-index: 98;
     color: rgba(255, 255, 255, .9);
-    width: 800px;
+    width: 90%;
 }
 
 #reviews:after {

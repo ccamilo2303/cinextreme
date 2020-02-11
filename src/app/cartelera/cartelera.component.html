@@ -57,7 +57,7 @@
         position: absolute;
         padding: 20px;
         width: 100%;
-        height: 40%;
+        height: 50%;
         bottom: -160px;
         left: 0;
         box-sizing: border-box;
@@ -173,7 +173,6 @@
 
         <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li><a href="#about" onclick="return false;">Últimos Estrenos</a></li>
                 <li><a href="#about" onclick="return false;">Pedir Película</a></li>
                 <li><a href="#about" onclick="return false;">Mi Cuenta</a></li>
                 <li><a href="#about" onclick="return false;">Cerrar Sesión</a></li>
@@ -204,27 +203,47 @@
 </section>
 
 <div class="container-fluid container-login100">
-    <div class="row d-flex justify-content-center">
-        <div class="card" *ngFor="let pelicula of peliculas | paginate: { itemsPerPage: 10, currentPage: p }" [routerLink]="['/pelicula/', pelicula.id_Movies, pelicula.id_Tmbd, pelicula.name_Movie]" (click)="almacenarDescripcion(pelicula.id_Tmbd, pelicula.descripcion)">
 
-            <div class="poster"><img [src]="pelicula.image">
+
+
+
+    <div class="row d-flex justify-content-center">
+        <div class="card" *ngFor="let pelicula of peliculas | paginate: { itemsPerPage: 10, currentPage: p }" [routerLink]="['/pelicula/', pelicula.id_Tmdb, pelicula.name_Movie]">
+
+            <div class="poster">
+                <img [src]="ipImagenTMDB +pelicula.url_Img">
             </div>
             <div class="details">
-                <h2>{{pelicula.name_Movie}}<br><span>{{pelicula.duration | hour}}</span></h2>
+                <h2>{{pelicula.name_Movie}}<br><span>{{pelicula.duracion | hour}}</span></h2>
 
                 <div class="rating">
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <span>5/5</span>
+                    <div class="score">
+                        <div class="score-wrap">
+                            <span class="stars-active" [ngStyle]="{'width' : (pelicula.vote_average * 10)+'%'}" style="width:50%">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                            </span>
+                            <span class="stars-inactive">
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </span>
+                        </div>
+
+                    </div>
+                    <span>
+                        {{ (pelicula.vote_average / 2).toFixed(1)}}/5
+                    </span>
                 </div>
 
-                <!--<div class="tags">
-                <span class="fantasy">Fantasy</span>
-                <span class="scifi">Sci Fi</span>
-            </div>-->
+                <div class="tags">
+                    <span class="fantasy">Total Votos: {{pelicula.vote_count}}</span>
+                </div>
 
                 <!--<div class="info">
                 <p>Iron Man, Thor, the Hulk and the rest of the Avengers unite to battle their most powerful enemy yet
@@ -254,7 +273,9 @@
     <div class="row">
         <pagination-controls (pageChange)="p = $event" responsive="true" previousLabel="Anterior" nextLabel="Siguiente" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"></pagination-controls>
     </div>
-
+    <script>
+        Tawk_API.showWidget();
+    </script>
 
 </div>
 

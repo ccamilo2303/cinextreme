@@ -1127,13 +1127,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .vid-info {
     position: absolute;
-    top: 70%;
+    top: 68%;
     left: 0%;
     width: 100%;
-    background: rgba(52, 59, 64, 0.404);
+    height: 32%;
+    background: rgba(0, 0, 0, 0.705);
     color: #fff;
     padding: 1rem;
-    font-family: Avenir, Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .vid-info p {

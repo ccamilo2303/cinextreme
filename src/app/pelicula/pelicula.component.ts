@@ -33,14 +33,13 @@ export class PeliculaComponent implements OnInit {
   ngOnInit() {
 
     let id = this.route.params.subscribe(p => {
-      if (p == undefined || p['id'] == undefined || p['idTMDB'] == undefined ||  p['nombre'] == undefined ) {
+      if (p == undefined || p['idTMDB'] == undefined ||  p['nombre'] == undefined ) {
         Swal.fire('Error', 'No se puede mostrar la película', 'error');
         return;
       }
       
-      this.descripcion = localStorage.getItem(p['idTMDB']);
-      this.nombre = p['nombre'];
-      this.httpService.consultarPelicula(p.id).subscribe((r: Array<string>) => {
+      this.nombre =  p['nombre'] ;
+      this.httpService.consultarPelicula(p['idTMDB']).subscribe((r: Array<string>) => {
         if (r == null || r == undefined) {
           Swal.fire('Error', 'No se puede mostrar la película', 'error');
           return;
@@ -50,7 +49,8 @@ export class PeliculaComponent implements OnInit {
           return;
         }
 
-        document.getElementById('contenedorVideo').innerHTML = '<div class="videoContainer self-video" id="video130" data-vidid="' + r[0]['url_Movie'] + '"> <div class="closeVideo">&times;</div> </div>'
+        this.descripcion = r[0]['description_Movie'];
+        document.getElementById('contenedorVideo').innerHTML = '<div class="videoContainer self-video" id="video130" data-vidid="' + r[0]['url_movie'] + '"> <div class="closeVideo">&times;</div> </div>'
         this.theMovieDataBaseService.consultarImagenesPelicula(p['idTMDB']).subscribe(i => {
           for (let img of i['backdrops']) {
             this.imagenes.push(img);

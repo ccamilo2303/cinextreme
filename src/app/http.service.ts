@@ -11,13 +11,13 @@ export class HttpService {
 
   consultarCartelera(){
 
-    return this.httpClient.get(environment.ipServicio+'/consultar');
+    return this.httpClient.get(environment.ipServicio+'consulta');
 
   }
 
   consultarPelicula(id){
 
-    return this.httpClient.get(environment.ipServicio+'/pelicula/'+id);
+    return this.httpClient.get(environment.ipServicio+'pelicula/'+id);
     
   }
 

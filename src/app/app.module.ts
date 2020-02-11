@@ -55,7 +55,7 @@ const routes: Routes = [
   },
   
   {
-    path: 'pelicula/:id/:idTMDB/:nombre',
+    path: 'pelicula/:idTMDB/:nombre',
     component: PeliculaComponent
   },
   

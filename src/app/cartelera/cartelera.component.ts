@@ -13,13 +13,15 @@ declare var $: any;
 @Component({
   selector: 'app-cartelera',
   templateUrl: './cartelera.component.html',
-  styleUrls: ['../css/styles.css'],
+  styleUrls: ['../css/styles.css', 'cartelera.component.css'],
   providers: [NgbRatingConfig]
 })
 export class CarteleraComponent implements OnInit {
-  
+
   public peliculas: any;
   public pageOfItems: Array<any>;
+  public ipImagenTMDB :string;
+  public p:any;
 
   public banner = [
     "../img/hero-bg.jpg",
@@ -32,6 +34,7 @@ export class CarteleraComponent implements OnInit {
     config.max = 5;
     config.readonly = true;
     this.spinner.show();
+    this.ipImagenTMDB = environment.ipImagenTMDB;
   }
 
   urlBase = undefined;
@@ -51,23 +54,16 @@ export class CarteleraComponent implements OnInit {
     //image
     this.httpService.consultarCartelera().subscribe(result => {
       this.peliculas = result;
-      for (let x of this.peliculas) {
-        this.theMovieDataBaseService.consultarImagen(x['id_Tmbd']).subscribe(rImg => {
-          x.image = environment.ipImagenTMDB + rImg['poster_path'];
-          x.descripcion = rImg['overview'];
-          x.duration = rImg['runtime'];
-        });
-      }
     }, err => {
       Swal.fire('Error', 'Ocurrió error: ' + err, 'error');
     });
 
-    
-    
+
+
 
     setTimeout(() => {
       this.spinner.hide();
-    }, 7000);
+    }, 4000);
   }
 
   /**
