@@ -10,10 +10,6 @@ export class IndexComponent implements OnInit {
 
   constructor(private navService:NavService) { }
 
-  ngOnInit() {
-
-    this.navService.iniciarNav();
-
-  }
+  ngOnInit() {}
 
 }

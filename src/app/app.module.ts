@@ -31,6 +31,8 @@ import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './footer/footer.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { GeneroComponent } from './genero/genero.component';
 
 const routes: Routes = [
   {
@@ -58,6 +60,11 @@ const routes: Routes = [
     path: 'pelicula/:idTMDB/:nombre',
     component: PeliculaComponent
   },
+  {
+    path: 'genero/:id/:nombre',
+    component: GeneroComponent
+  },
+  
   
   {
     path: '**',
@@ -75,7 +82,8 @@ const routes: Routes = [
     PeliculaComponent,
     SafePipePipe,
     HourPipe,
-    FooterComponent
+    FooterComponent,
+    GeneroComponent
     
   ],
   imports: [
@@ -100,7 +108,8 @@ const routes: Routes = [
     FormsModule,
     HttpClientModule,
     NgxSpinnerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     {provide : LocationStrategy , useClass: HashLocationStrategy}

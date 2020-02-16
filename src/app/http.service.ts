@@ -21,6 +21,18 @@ export class HttpService {
     
   }
 
+  consultarGeneros(){
+
+    return this.httpClient.get(environment.ipServicio+'lista-generos');
+
+  }
+
+  consultarPeliculaGenero(id){
+
+    return this.httpClient.get(environment.ipServicio+'consulta-genero/'+id);
+
+  }
+
 
 
 }
