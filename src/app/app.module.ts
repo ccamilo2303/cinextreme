@@ -37,6 +37,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PagoComponent } from './pago/pago.component';
 import { HeadComponent } from './head/head.component';
+import { ResponseComponent } from './response/response.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
     path: 'registro',
     component: RegistroComponent
   },
+  {
+    path: 'registro/:tipo',
+    component: RegistroComponent
+  },
   
   {
     path: 'pelicula/:idTMDB/:nombre',
@@ -72,7 +77,10 @@ const routes: Routes = [
     path: 'pago',
     component: PagoComponent
   },
-  
+  {
+    path: 'response',
+    component: ResponseComponent
+  },
   {
     path: '**',
     redirectTo: 'index'
@@ -92,7 +100,8 @@ const routes: Routes = [
     FooterComponent,
     GeneroComponent,
     PagoComponent,
-    HeadComponent
+    HeadComponent,
+    ResponseComponent
     
   ],
   imports: [

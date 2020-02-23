@@ -14,7 +14,7 @@
 
         <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li><a href="#about" onclick="return false;">Precios</a></li>
+                <li><a [routerLink]="['/index']" onclick="return false;">Crear Cuenta</a></li>
             </ul>
         </nav>
         <!-- #nav-menu-container -->
@@ -31,7 +31,7 @@
         <h2>Disfruta de las últimas películas de estreno sin cortes, si publicidad, full calidad</h2>
 
         <div class="row d-flex justify-content-center">
-            <a href="#about" class="btn-get-started">¿Tienes Código de demostración?</a>
+            <a routerLink="/registro" class="btn-get-started">¿Tienes Código de demostración?</a>
             <a routerLink="/login" class="btn-get-started" routerLinkActive="active">Inicia Sesión</a>
 
         </div>
