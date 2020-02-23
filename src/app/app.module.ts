@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +12,7 @@ import { TrailerComponent } from './trailer/trailer.component';
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from  '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AngularFireModule } from '@angular/fire';
@@ -26,13 +26,17 @@ import { RegistroComponent } from './registro/registro.component';
 import { PeliculaComponent } from './pelicula/pelicula.component';
 import { SafePipePipe } from './safe-pipe.pipe';
 import { HourPipe } from './hour.pipe';
-import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FooterComponent } from './footer/footer.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { GeneroComponent } from './genero/genero.component';
+import { AngularMaterialModule } from './angular-material.module';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { PagoComponent } from './pago/pago.component';
+import { HeadComponent } from './head/head.component';
 
 const routes: Routes = [
   {
@@ -64,7 +68,10 @@ const routes: Routes = [
     path: 'genero/:id/:nombre',
     component: GeneroComponent
   },
-  
+  {
+    path: 'pago',
+    component: PagoComponent
+  },
   
   {
     path: '**',
@@ -83,7 +90,9 @@ const routes: Routes = [
     SafePipePipe,
     HourPipe,
     FooterComponent,
-    GeneroComponent
+    GeneroComponent,
+    PagoComponent,
+    HeadComponent
     
   ],
   imports: [
@@ -106,14 +115,17 @@ const routes: Routes = [
 
     AngularFireAuthModule ,
     FormsModule,
+    ReactiveFormsModule ,
     HttpClientModule,
     NgxSpinnerModule,
     NgxPaginationModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AngularMaterialModule
   ],
   providers: [
     {provide : LocationStrategy , useClass: HashLocationStrategy}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

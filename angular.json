@@ -24,22 +24,22 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": [
-				"./node_modules/jquery/dist/jquery.min.js",
-				"src/assets/js/hoverIntent.js",
-				"src/assets/js/superfish.min.js",				
-				"src/assets/jsPelicula/scripts/jquery-migrate-1.4.1.min.js",
-				"src/assets/jsPelicula/scripts/zoom_box/zoom_box.js",
-				"src/assets/jsPelicula/scripts/core.js",
-				"src/assets/jsPelicula/scripts/transition.js",
-				"src/assets/jsPelicula/scripts/background.js",
-				"src/assets/jsPelicula/scripts/spin.js",
-				"src/assets/jsPelicula/scripts/retina.js",
-				"src/assets/js/scriptChat.js"
-			]
+              "./node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/hoverIntent.js",
+              "src/assets/js/superfish.min.js",
+              "src/assets/jsPelicula/scripts/jquery-migrate-1.4.1.min.js",
+              "src/assets/jsPelicula/scripts/zoom_box/zoom_box.js",
+              "src/assets/jsPelicula/scripts/core.js",
+              "src/assets/jsPelicula/scripts/transition.js",
+              "src/assets/jsPelicula/scripts/background.js",
+              "src/assets/jsPelicula/scripts/spin.js",
+              "src/assets/jsPelicula/scripts/retina.js",
+              "src/assets/js/scriptChat.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -102,7 +102,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []

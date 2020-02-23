@@ -1,0 +1,176 @@
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat");
+    .pricing-table {
+        padding-top: 80px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .pricing-table .block-heading {
+        padding-top: 80px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .pricing-table .block-heading h2 {
+        color: #3b99e0;
+    }
+    
+    .pricing-table .block-heading p {
+        text-align: center;
+        max-width: 420px;
+        margin: auto;
+        opacity: 0.7;
+    }
+    
+    .pricing-table .heading {
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .pricing-table .item {
+        background-color: #ffffff;
+        box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.075);
+        border-top: 2px solid #5ea4f3;
+        padding: 30px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .pricing-table .col-md-5:not(:last-child) .item {
+        margin-bottom: 30px;
+    }
+    
+    .pricing-table .item button {
+        font-weight: 600;
+    }
+    
+    .pricing-table .ribbon {
+        width: 160px;
+        height: 32px;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0px 2px 3px rgba(136, 136, 136, 0.25);
+        background: #4dbe3b;
+        transform: rotate(45deg);
+        position: absolute;
+        right: -42px;
+        top: 20px;
+        padding-top: 7px;
+    }
+    
+    .pricing-table .item p {
+        text-align: center;
+        margin-top: 20px;
+        opacity: 0.7;
+    }
+    
+    .pricing-table .features .feature {
+        font-weight: 600;
+    }
+    
+    .pricing-table .features h4 {
+        text-align: center;
+        font-size: 18px;
+        padding: 5px;
+    }
+    
+    .pricing-table .price h4 {
+        margin: 15px 0;
+        font-size: 45px;
+        text-align: center;
+        color: #2288f9;
+    }
+    
+    .pricing-table .price h3 {
+        margin: 15px 0;
+        font-size: 35px;
+        text-align: center;
+        color: #2288f9;
+    }
+    
+    .pricing-table .buy-now button {
+        text-align: center;
+        margin: auto;
+        font-weight: 600;
+        padding: 9px 0;
+    }
+</style>
+
+<section class="pricing-table">
+    <div class="container">
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-5 col-lg-4">
+                <div class="item">
+                    <div class="heading">
+                        <h3>BÁSICO</h3>
+                    </div>
+                    <p>Acceso a todas las películas, opción para solicitar palículas, soporte técnico por Chat, Email, WhatsApp</p>
+                    <div class="features">
+                        <h4><span class="feature">Días de servicio</span> : <span class="value">30</span></h4>
+                        <h4><span class="feature">Pantallas Activas</span> : <span class="value">1</span></h4>
+                    </div>
+                    <div class="price">
+                        <h3>7.000 <span class="value">COP/ mes</span></h3>
+                    </div>
+                    <button class="btn btn-block btn-outline-primary" type="submit" (click)="plan('configuracionPlanBasico')">COMPRAR AHORA</button>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <div class="item">
+                    <div class="ribbon">Mejor précio</div>
+                    <div class="heading">
+                        <h3>ESTÁNDAR</h3>
+                    </div>
+                    <p>Acceso a todas las películas, opción para solicitar palículas, soporte técnico por Chat, Email, WhatsApp</p>
+                    <div class="features">
+                        <h4><span class="feature">Días de servicio</span> : <span class="value">60</span></h4>
+                        <h4><span class="feature">Pantallas Activas</span> : <span class="value">2</span></h4>
+                    </div>
+                    <div class="price">
+                        <h3>12.000 <span class="value">COP/ mes</span></h3>
+                    </div>
+                    <button class="btn btn-block btn-primary" type="submit" (click)="plan('configuracionPlanEstandar')">COMPRAR AHORA</button>
+                </div>
+            </div>
+            <div class="col-md-5 col-lg-4">
+                <div class="item">
+                    <div class="heading">
+                        <h3>PREMIUM</h3>
+                    </div>
+                    <p>Acceso a todas las películas, opción para solicitar palículas, soporte técnico por Chat, Email, WhatsApp</p>
+                    <div class="features">
+                        <h4><span class="feature">Días de servicio</span> : <span class="value">90</span></h4>
+                        <h4><span class="feature">Pantallas Activas</span> : <span class="value">3</span></h4>
+                    </div>
+                    <div class="price">
+                        <h3>21.000 <span class="value">COP/ mes</span></h3>
+                    </div>
+                    <button class="btn btn-block btn-outline-primary" type="submit" (click)="plan('configuracionPlanPremium')">COMPRAR AHORA</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<form method="post" action="{{config.url}}">
+    <input name="merchantId" type="hidden" value="{{config.merchantId}}">
+    <input name="accountId" type="hidden" value="{{config.accountId}}">
+    <input name="description" type="hidden" value="{{config.description}}">
+    <input name="referenceCode" type="hidden" value="{{config.referenceCode}}">
+    <input name="amount" type="hidden" value="{{config.amount}}">
+    <input name="tax" type="hidden" value="{{config.tax}}">
+    <input name="taxReturnBase" type="hidden" value="{{config.taxReturnBase}}">
+    <input name="currency" type="hidden" value="{{config.currency}}">
+    <input name="signature" type="hidden" value="{{config.firmaMd5}}">
+    <input name="test" type="hidden" value="{{config.test}}">
+    <input name="buyerEmail" type="hidden" value="{{config.buyerEmail}}">
+    <input name="buyerFullName" type="hidden" value="{{config.buyerFullName}}">
+    <input name="responseUrl" type="hidden" value="{{config.responseUrl}}">
+    <input name="confirmationUrl" type="hidden" value="{{config.confirmationUrl}}">
+
+    <input name="Submit" type="submit" value="Enviar" id="btnSend">
+</form>

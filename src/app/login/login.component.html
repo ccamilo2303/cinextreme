@@ -1,61 +1,162 @@
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30" style="padding-top: 50px;">
-            <a routerLink="/index" class="fas fa-arrow-left" routerLinkActive="active"> Regresar</a>
+<header id="header">
+    <div class="container">
 
-
-            <form class="login100-form validate-form">
-
-
-                <span class="login100-form-title p-b-55">
-                        Inicio de Sesión
-                    </span>
-                <div class="wrap-input100 validate-input m-b-16">
-                    <input class="input100" type="text" name="email" placeholder="Email" [(ngModel)]="email">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                            <span class="lnr lnr-envelope"></span>
-                    </span>
-                </div>
-
-                <div class="wrap-input100 validate-input m-b-16">
-                    <input class="input100" type="password" name="pass" placeholder="Contraseña" [(ngModel)]="pass">
-                    <span class="focus-input100"></span>
-                    <span class="symbol-input100">
-                            <span class="lnr lnr-lock"></span>
-                    </span>
-                </div>
-
-                <div class="container-login100-form-btn p-t-24" style="padding-top: 0px;">
-                    <button class="login100-form-btn" (click)="login();" [disabled]="load">
-                            Login
-                        </button>
-                    <img src="/assets/gif/Blocks-1s-200px.gif" style="width: 80px;" *ngIf="load">
-                </div>
-
-                <div class="text-center w-full p-t-42 p-b-22" style="padding-top: 20px;">
-                    <span class="txt1">
-                            O inicia con
-                        </span>
-                </div>
-
-                <!--*************<a href="#" class="btn-face m-b-10">
-                    <i class="fa fa-facebook-official"></i> Facebook
-                </a>*************-->
-
-                <a href="#" class="btn-google m-b-10" onclick="return false;" (click)="loginGoogle();" style="width: 100%;">
-                    <img src="/assets/images/icons/icon-google.png" alt="GOOGLE"> Google
-                </a>
-                <hr>
-                <div class="text-center w-full p-t-115" style="padding-top: 0px;">
-                    <span class="txt1">
-                            ¿No tienes cuenta?
-                    </span>
-
-                    <a routerLink="/registro" class="txt1 bo1 hov1" routerLinkActive="active">Registrate</a>
-
-                </div>
-            </form>
+        <div id="logo" class="pull-left">
+            <a [routerLink]="['/index']" onclick="return false;">
+                <img src="/assets/img/CineXtremeSinLogo.png" alt="" title="" style="width: 150px;" />
+            </a>
+            <!-- Uncomment below if you prefer to use a text logo -->
+            <!--<h1><a href="#hero">Regna</a></h1>-->
         </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a [routerLink]="['/index']" onclick="return false;">Inicio</a></li>
+            </ul>
+        </nav>
+        <!-- #nav-menu-container -->
     </div>
+</header>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Inicia Sesión</mat-card-title>
+        </mat-card-header>
+
+
+        <form class="example-form">
+
+            <mat-card-content>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" type="text" [(ngModel)]="email" name="email">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input type="password" matInput placeholder="Contraseña" [(ngModel)]="pass" name="pass">
+                </mat-form-field>
+
+            </mat-card-content>
+            <button mat-stroked-button color="primary" class="btn-block" (click)="login();">Ingresar</button>
+
+
+            <button mat-button class="btn-block" (click)="loginGoogle();">
+                    <mat-icon style="width: 50px; height:30px" svgIcon="logo">
+                    </mat-icon>Iniciar con Google
+            </button>
+
+            <a [routerLink]="['/registro']" mat-button class="btn-block" onclick="return false;">Crear Cuenta</a>
+
+
+
+        </form>
+    </mat-card>
+
 </div>
+
+
+<style>
+    .app-header {
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+    }
+    
+    .login-wrapper {
+        height: 100%;
+        background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .positronx {
+        text-decoration: none;
+        color: #ffffff;
+    }
+    
+    .box {
+        position: relative;
+        top: 0;
+        opacity: 1;
+        float: left;
+        padding: 60px 50px 40px 50px;
+        width: 100%;
+        background: #fff;
+        border-radius: 10px;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        z-index: 5;
+        max-width: 400px;
+    }
+    
+    .box.back {
+        transform: scale(.95);
+        -webkit-transform: scale(.95);
+        -ms-transform: scale(.95);
+        top: -20px;
+        opacity: .8;
+        z-index: -1;
+    }
+    
+    .box:before {
+        content: "";
+        width: 100%;
+        height: 30px;
+        border-radius: 10px;
+        position: absolute;
+        top: -10px;
+        background: rgba(255, 255, 255, .6);
+        left: 0;
+        transform: scale(.95);
+        -webkit-transform: scale(.95);
+        -ms-transform: scale(.95);
+        z-index: -1;
+    }
+    
+    .login-wrapper .example-form {
+        min-width: 100%;
+        max-width: 300px;
+        width: 100%;
+    }
+    
+    .login-wrapper .example-full-width,
+    .login-wrapper .btn-block {
+        width: 100%;
+    }
+    
+    .login-wrapper mat-card-header {
+        text-align: center;
+        width: 100%;
+        display: block;
+        font-weight: 700;
+    }
+    
+    .login-wrapper mat-card-header mat-card-title {
+        font-size: 30px;
+        margin: 0;
+    }
+    
+    .login-wrapper .mat-card {
+        padding: 40px 70px 50px;
+    }
+    
+    .login-wrapper .mat-stroked-button {
+        border: 1px solid currentColor;
+        line-height: 54px;
+        background: #FFF7FA;
+    }
+    
+    .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+        padding: 0.8375em 0;
+    }
+</style>

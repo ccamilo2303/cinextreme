@@ -14,7 +14,8 @@ export class RegistroComponent implements OnInit {
   public email:string;
   public pass:string;
   public load: boolean;
-
+  public registroF:boolean = true;
+  public pago:boolean = false;
 
   constructor(public authenticationService: AuthenticationService) { }
 
@@ -41,7 +42,9 @@ export class RegistroComponent implements OnInit {
     this.authenticationService.registrar(this.email, this.pass).then(res => {
       this.load = false;
       this.authenticationService.registrarUsuario(this.nombres, this.email);
-      Swal.fire('Correcto!', 'Usuario registrado correctamente, lo invitamos a que inicie sesión', 'success');
+      Swal.fire('Correcto!', 'Usuario registrado correctamente, escoge un plan que se ajuste a tu necesidad', 'success');
+      this.registroF = false;
+      this.pago = true;
     })
     .catch(err => {
       Swal.fire('Error', err.message, 'error');
