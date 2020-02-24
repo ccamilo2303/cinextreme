@@ -3,10 +3,6 @@
     margin: 0;
     line-height: 1.6em;
     /*--COLOR ANIMATIONS--*/
-    -webkit-transition: background-color 0.30s linear, border-color 0.30s linear, color 0.30s linear, outline-color 0.30s linear;
-    -moz-transition: background-color 0.30s linear, border-color 0.30s linear, color 0.30s linear, outline-color 0.30s linear;
-    -o-transition: background-color 0.30s linear, border-color 0.30s linear, color 0.30s linear, outline-color 0.30s linear;
-    transition: background-color 0.30s linear, border-color 0.30s linear, color 0.30s linear, outline-color 0.30s linear;
     /*IE SCROLL STYLE*/
     -ms-overflow-style: -ms-autohiding-scrollbar;
 }

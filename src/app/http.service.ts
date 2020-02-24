@@ -32,7 +32,7 @@ export class HttpService {
     return this.httpClient.get(environment.ipServicio+'consulta-genero/'+id);
 
   }
-
+  
 
 
 }
