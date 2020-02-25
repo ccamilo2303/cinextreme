@@ -18,7 +18,8 @@ export class GeneroComponent implements OnInit {
   public id : any;
   public nombre : any;
   public generos : any;
-
+  public searchText:any;
+  public p:any;
   constructor(private router: Router, private route: ActivatedRoute, private navService: NavService, private httpService: HttpService) {
     navService.iniciarNav();
     this.ipImagenTMDB = environment.ipImagenTMDB;

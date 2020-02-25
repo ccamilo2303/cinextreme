@@ -26,11 +26,11 @@ export class CodeService {
    */
   generarSuscripcion(email, idPago, diasSuscripcion){
 
-    return this.httpClient.post(environment.ipServicio+'suscripcion-ac', {
+    return this.httpClient.post(environment.ipServicio+'suscripcion', {
       email: email,
       id_Pago : idPago,
       dias_Suscripcion : diasSuscripcion
-    })
+    });
 
   }
 
@@ -40,6 +40,11 @@ export class CodeService {
    * @param idTransaccion 
    */
   actualzarSuscripcion( idPago, idTransaccion){
+    
+    return this.httpClient.post(environment.ipServicio+'suscripcion-ac', {
+      id_Pago : idPago,
+      id_Transaccion : idTransaccion
+    });
 
   }
 

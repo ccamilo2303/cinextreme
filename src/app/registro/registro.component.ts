@@ -60,46 +60,57 @@ export class RegistroComponent implements OnInit {
             Swal.fire('Error', res['mensaje'], 'error');
             return;
           }
+
+          this.codeService.actualzarSuscripcion(random, 'DEMO').subscribe(res=>{
+            if (res['error'] == true) {
+              Swal.fire('Error', res['mensaje'], 'error');
+              return;
+            }
+
+            this.registrar(true);
+
+          }, error=>{
+            Swal.fire('Error', 'Ocurrió un error al momento de validar el código promocional', 'error');
+            console.log("", error);  
+            return;
+          })
           
         }, error=>{
           Swal.fire('Error', 'Ocurrió un error al momento de validar el código promocional', 'error');
           console.log("", error);  
+          return;
         });
-        this.registrar();
+        
       }, error => {
         Swal.fire('Error', 'Ocurrió un error al momento de validar el código promocional', 'error');
         console.log("", error);
         return;
       })
+    }else{
+      this.registrar(false);
     }
 
     this.load = true;
 
-    this.authenticationService.registrar(this.email, this.pass).then(res => {
-      this.load = false;
-      this.authenticationService.registrarUsuario(this.nombres, this.email);
-      Swal.fire('Correcto!', 'Usuario registrado correctamente, escoge un plan que se ajuste a tu necesidad', 'success');
-      this.registroF = false;
-      this.pago = true;
-      localStorage.setItem('nombres', this.nombres);
-      localStorage.setItem('email', this.email);
-    })
-      .catch(err => {
-        Swal.fire('Error', err.message, 'error');
-        this.load = false;
-      });
+    
   }
 
 
-  private registrar() {
+  private registrar(codigo) {
     this.authenticationService.registrar(this.email, this.pass).then(res => {
       this.load = false;
       this.authenticationService.registrarUsuario(this.nombres, this.email);
-      Swal.fire('Correcto!', 'Usuario registrado correctamente, escoge un plan que se ajuste a tu necesidad', 'success');
-      this.registroF = false;
-      this.pago = true;
-      localStorage.setItem('nombres', this.nombres);
-      localStorage.setItem('email', this.email);
+
+      if(codigo == false){
+        Swal.fire('Correcto!', 'Usuario registrado correctamente, escoge un plan que se ajuste a tu necesidad', 'success');
+        this.registroF = false;
+        this.pago = true;
+        localStorage.setItem('nombres', this.nombres);
+        localStorage.setItem('email', this.email);
+      }else{
+        Swal.fire('Correcto!', 'Usuario registrado correctamente, dispones de 1 día de demostración, te invitamos a iniciar sesión', 'success');
+      }
+      
     })
       .catch(err => {
         Swal.fire('Error', err.message, 'error');
