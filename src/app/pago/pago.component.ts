@@ -44,7 +44,7 @@ export class PagoComponent implements OnInit {
     this.config.buyerEmail = localStorage.getItem('email');
     this.config.buyerFullName = localStorage.getItem('nombres');
     this.config.confirmacionEmail = localStorage.getItem('email');
-    this.config.referenceCode = uuid.v4();
+    this.config.referenceCode =localStorage.getItem('idPago');
     
     this.spinner.show();
     setTimeout( ()=>{

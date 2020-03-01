@@ -3,6 +3,8 @@ import { AuthenticationService } from './../authentication-service.service';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CodeService } from '../code.service';
+import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -19,9 +21,9 @@ export class RegistroComponent implements OnInit {
   public pago: boolean = false;
   public tipo: string = '';
   public codigo: string = '';
+  private loginComponent: LoginComponent;
 
-
-  constructor(public authenticationService: AuthenticationService, private route: ActivatedRoute, private codeService: CodeService) { }
+  constructor(public authenticationService: AuthenticationService, private route: ActivatedRoute, private router: Router, private codeService: CodeService) { }
 
   ngOnInit() {
     this.route.params.subscribe(p => {
@@ -29,6 +31,8 @@ export class RegistroComponent implements OnInit {
         this.tipo = p['tipo'];
       }
     });
+    this.loginComponent = new LoginComponent(this.authenticationService, this.router);
+
   }
 
   registro() {
@@ -49,19 +53,22 @@ export class RegistroComponent implements OnInit {
 
     this.codigo = this.codigo.split(' ').join();
     if (this.codigo != '') {
-      this.codeService.validarCodigo(this.codigo, this.email).subscribe(res => {
+
+      this.codeService.validarCodigo(this.codigo, this.email).then(res => {
         if (res['error'] == true) {
           Swal.fire('Error', res['mensaje'], 'error');
           return;
         }
         let random = Math.floor(Math.random() * 1000001);
-        this.codeService.generarSuscripcion(this.email, random, 1).subscribe(res=>{
+
+
+        this.codeService.generarSuscripcion(this.email, random, 1).then(res => {
           if (res['error'] == true) {
             Swal.fire('Error', res['mensaje'], 'error');
             return;
           }
 
-          this.codeService.actualzarSuscripcion(random, 'DEMO').subscribe(res=>{
+          this.codeService.actualzarSuscripcion(random, 'DEMO').then(res => {
             if (res['error'] == true) {
               Swal.fire('Error', res['mensaje'], 'error');
               return;
@@ -69,30 +76,38 @@ export class RegistroComponent implements OnInit {
 
             this.registrar(true);
 
-          }, error=>{
+          }, error => {
             Swal.fire('Error', 'Ocurrió un error al momento de validar el código promocional', 'error');
-            console.log("", error);  
+            console.log("", error);
             return;
           })
-          
-        }, error=>{
-          Swal.fire('Error', 'Ocurrió un error al momento de validar el código promocional', 'error');
-          console.log("", error);  
+
+        }, error => {
+          Swal.fire('Error', 'Ocurrió un error al momento de generar la suscripcion', 'error');
+          console.log("", error);
           return;
         });
-        
+
       }, error => {
         Swal.fire('Error', 'Ocurrió un error al momento de validar el código promocional', 'error');
         console.log("", error);
         return;
       })
-    }else{
-      this.registrar(false);
+    } else {
+      let random = Math.floor(Math.random() * 8000001);
+      localStorage.setItem("idPago", random.toString());
+      this.codeService.generarSuscripcion(this.email, random, 1).then(res => {
+        if (res['error'] == true) {
+          Swal.fire('Error', res['mensaje'], 'error');
+          return;
+        }
+        this.registrar(false);
+      });
     }
 
     this.load = true;
 
-    
+
   }
 
 
@@ -101,20 +116,31 @@ export class RegistroComponent implements OnInit {
       this.load = false;
       this.authenticationService.registrarUsuario(this.nombres, this.email);
 
-      if(codigo == false){
+      if (codigo == false) {
         Swal.fire('Correcto!', 'Usuario registrado correctamente, escoge un plan que se ajuste a tu necesidad', 'success');
         this.registroF = false;
         this.pago = true;
         localStorage.setItem('nombres', this.nombres);
         localStorage.setItem('email', this.email);
-      }else{
-        Swal.fire('Correcto!', 'Usuario registrado correctamente, dispones de 1 día de demostración, te invitamos a iniciar sesión', 'success');
+      } else {
+        Swal.fire('Correcto!', 'Usuario registrado correctamente, tu cuenta estará activa por un día para disfrutar de todo nuestro contenido.', 'success');
+        this.loginComponent.email = this.email;
+        this.loginComponent.pass = this.pass;
+        this.loginComponent.login();
       }
-      
+
     })
       .catch(err => {
         Swal.fire('Error', err.message, 'error');
         this.load = false;
       });
+  }
+}
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds) {
+      break;
+    }
   }
 }

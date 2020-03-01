@@ -15,7 +15,7 @@ export class CodeService {
    */
   validarCodigo(codigo, email) {
 
-    return this.httpClient.get(environment.ipServicio + ('validar-codigo?code='+codigo+"&email="+email) );
+    return this.httpClient.get(environment.ipServicio + ('validar-codigo?code='+codigo+"&email="+email) ).toPromise();
 
   }
 
@@ -26,11 +26,7 @@ export class CodeService {
    */
   generarSuscripcion(email, idPago, diasSuscripcion){
 
-    return this.httpClient.post(environment.ipServicio+'suscripcion', {
-      email: email,
-      id_Pago : idPago,
-      dias_Suscripcion : diasSuscripcion
-    });
+    return this.httpClient.get(environment.ipServicio+'suscripcion?email='+email+'&id_Pago='+idPago+'&dias_Suscripcion='+ diasSuscripcion).toPromise();
 
   }
 
@@ -41,10 +37,7 @@ export class CodeService {
    */
   actualzarSuscripcion( idPago, idTransaccion){
     
-    return this.httpClient.post(environment.ipServicio+'suscripcion-ac', {
-      id_Pago : idPago,
-      id_Transaccion : idTransaccion
-    });
+    return this.httpClient.get(environment.ipServicio+'suscripcion-ac?id_Pago='+idPago+'&id_Transaccion='+idTransaccion).toPromise();
 
   }
 
