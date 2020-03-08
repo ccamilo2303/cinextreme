@@ -33,6 +33,9 @@ export class HttpService {
 
   }
   
+  validarUsuario(email){
+    return this.httpClient.get(environment.ipServicio+'valsuscripcion?email='+email);
+  }
 
 
 }

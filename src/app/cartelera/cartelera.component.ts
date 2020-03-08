@@ -36,7 +36,6 @@ export class CarteleraComponent implements OnInit {
   constructor(private router: Router, private navService: NavService, private httpService: HttpService, private theMovieDataBaseService: TheMovieDataBaseService, config: NgbRatingConfig, private spinner: NgxSpinnerService) {
     config.max = 5;
     config.readonly = true;
-    this.spinner.show();
     this.ipImagenTMDB = environment.ipImagenTMDB;
   }
 

@@ -38,6 +38,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { PagoComponent } from './pago/pago.component';
 import { HeadComponent } from './head/head.component';
 import { ResponseComponent } from './response/response.component';
+import { CuentaComponent } from './cuenta/cuenta.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,10 @@ const routes: Routes = [
     component: ResponseComponent
   },
   {
+    path: 'cuenta',
+    component: CuentaComponent
+  },
+  {
     path: '**',
     redirectTo: 'index'
   }
@@ -101,7 +106,8 @@ const routes: Routes = [
     GeneroComponent,
     PagoComponent,
     HeadComponent,
-    ResponseComponent
+    ResponseComponent,
+    CuentaComponent
     
   ],
   imports: [
