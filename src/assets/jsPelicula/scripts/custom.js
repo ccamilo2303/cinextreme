@@ -972,9 +972,10 @@ jQuery(document).on('click', '.videoLink', function() {
     if (videoContainer.hasClass('self-video')) {
 
         //videoContainer.append('<video class="postVideo selfVid" width="320" height="240" controls autoplay><source src="' + videoId + '" type="video/mp4">Your browser does not support the video tag.</video> ');
-        videoContainer.append('<video id="movie" class="postVideo selfVid video-js" controls autoplay preload="auto" width="320" height="240" poster="https://image.tmdb.org/t/p/original/A1lvRqwbLz0PIs5QyivFVzCarc6.jpg" data-setup="{}" > <source src="' + videoId + '" type="video/mp4" /> <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank" >supports HTML5 video</a > </p> </video><script src="https://vjs.zencdn.net/7.6.6/video.js"></script>');
-        videoContainer.append('<script > setTimeout(function(){document.getElementById("movie_html5_api").play();}, 500)</script>');
-
+        //videoContainer.append('<video id="movie" class="postVideo selfVid video-js" controls autoplay preload="auto" width="320" height="240" poster="https://image.tmdb.org/t/p/original/A1lvRqwbLz0PIs5QyivFVzCarc6.jpg" data-setup="{}" > <source src="' + videoId + '" type="video/mp4" /> <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="https://videojs.com/html5-video-support/" target="_blank" >supports HTML5 video</a > </p> </video><script src="https://vjs.zencdn.net/7.6.6/video.js"></script>');
+        //videoContainer.append('<script > setTimeout(function(){document.getElementById("movie_html5_api").play();}, 2000)</script>');
+        videoContainer.append('<div class="embed-container"> <iframe  src="https://drive.google.com/file/d/18KgVBmvJopnkw-oOR8R7o5LsiBPF6iDX/preview" id="movie" width="640" height="480" frameborder="0" allowfullscreen></iframe> </div>');
+        videoContainer.append('<style>.embed-container {position: relative;height: 100%;overflow: hidden;}.16by9 {padding-bottom: 56.25%;}.4by3 {padding-bottom: 75%;}.embed-container iframe {position: absolute;top:0;left: 0;width: 100%;height: 100%;}body{background:black;}</style>');
     } else if (videoContainer.hasClass('youtube-video')) {
 
         videoContainer.append('<iframe class="postVideo youTubeVid" src="https://www.youtube.com/embed/' + videoId + '?rel=0&amp;showinfo=0&amp;controls=1&amp;autoplay=1" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
@@ -998,12 +999,12 @@ jQuery(document).on('click', '.videoLink', function() {
     theBody.addClass('full-screen-video');
 
     //CLOSE SELF-HOSTED VIDEO WHEN FINISHED
-    if (videoContainer.hasClass('self-video')) {
+    /*if (videoContainer.hasClass('self-video')) {
         var videoTag = document.getElementsByTagName('video')[0];
         videoTag.onended = function(e) {
             closeVideo();
         };
-    }
+    }*/
 
     return false;
 });

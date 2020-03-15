@@ -1711,20 +1711,19 @@ body.search-open #socialIcons #link-search {
 
 .closeVideo {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 26px;
+    top: 5px;
+    right: 5px;
+    font-size: 30px;
     display: block;
-    width: 35px;
-    height: 35px;
+    width: 56px;
+    height: 56px;
     line-height: 35px;
     border-radius: 50%;
     border: 2px solid #fff;
     z-index: 100;
     color: #fff;
     text-align: center;
-    background: rgba(0, 0, 0, .35);
-    cursor: pointer;
+    background: rgba(0, 0, 0, 0.959);
     font-weight: lighter;
 }
 
@@ -1732,6 +1731,7 @@ body.search-open #socialIcons #link-search {
     background: #fff;
     color: #191919;
     font-size: 32px;
+    cursor: pointer;
 }
 
 .video-image-container {
